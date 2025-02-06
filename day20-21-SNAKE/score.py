@@ -6,6 +6,8 @@ class Score(Turtle):
 
     def __init__(self):
         super().__init__(visible=False)
+        self.score = 0
+        self.high_score = 0
         self.penup()
         self.total = 0
         self.color("white")
@@ -17,7 +19,8 @@ class Score(Turtle):
 
     def game_over(self):
         self.goto(0,0)
-        self.write("Game Over",align='center',font=("Courier",30,"normal"))
+        if self.score > self.high_score:
+            self.high_score = self.score
 
     def update_score(self):
         self.clear()
