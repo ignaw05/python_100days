@@ -22,7 +22,6 @@ print(password_list)
 
 random.shuffle(password_list)
 print(password_list)
-for i in password_list:
-    password += i
+password = "".join(password_list)
 
 print(password)

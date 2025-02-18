@@ -8,8 +8,14 @@ import pandas
 database = pandas.read_csv("nato_phonetic_alphabet.csv")
 dict = {row.letter:row.code for (index,row) in database.iterrows()}
 
-word_in = input("Enter the word: ")
+def ask_word():
+    word_in = input("Enter the word: ")
+    try:
+        list_words = [dict[letter.upper()] for letter in word_in]
+    except KeyError as letter:
+        print(f"{letter} is not a letter!")
+        ask_word()
+    else:
+        print(list_words)
 
-list_words = [dict[letter.upper()] for letter in word_in]
-
-print(list_words)
+ask_word()
